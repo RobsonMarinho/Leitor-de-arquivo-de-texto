@@ -11,4 +11,15 @@ if teste == True:
     file_data = open(diretorio)  # Abre o arquivo dentro do python
     file_data = file_data.read()  # Realiza a leitura do texto
 
+    print('Salvando o arquivo ...')
     voz = gTTS(file_data, lang='pt')
+    voz.save('voz.mp3')
+
+    print('Falando ...')
+
+    mixer.init()
+    mixer.music.load('voz.mp3')
+    mixer.music.play()
+
+else:
+    print('Diretorio não encontrado!')
